@@ -1,5 +1,11 @@
 version: "3.8"
 volumes:
+  dashy_data:
+    name: dashy_data
+    driver_opts:
+      type: nfs4
+      o: addr=192.168.86.11,nolock,soft,rw
+      device: :/volume1/NAS/DockerData/dashy
 
 services:
   dashy:
@@ -7,11 +13,10 @@ services:
     # build:
     image: lissy93/dashy
     container_name: Dashy
-    # Pass in your config file below, by specifying the path on your host machine
     volumes:
-      - /root/my-config.yml:/app/public/conf.yml
+      - dashy_data:/my-config.yml:/app/public/conf.yml
     networks:
-      vw-bw:
+      dashy:
         ipv4_address: 172.26.1.10
     ports:
       - 8066:80
@@ -32,7 +37,7 @@ services:
       start_period: 40s
 
 networks:
-  vw-bw:
+  dashy:
     ipam:
       driver: default
       config:
