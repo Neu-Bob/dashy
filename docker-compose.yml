@@ -14,7 +14,7 @@ services:
     # Pass in your config file below, by specifying the path on your host machine
     volumes:
       - dashy_data:/test
-      - /root/my-config.yml:/app/public/conf.yml
+      - ./root/my-config.yml:/app/public/conf.yml
     networks:
       dashy:
         ipv4_address: 172.26.1.10
