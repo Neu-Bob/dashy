@@ -1,12 +1,21 @@
 version: "3.8"
 
-# volumes:
-#   dashy_data:
-#     name: dashy_data
-#     driver_opts:
-#       type: nfs4
-#       o: addr=192.168.86.11,nolock,soft,rw
-#       device: :/volume1/NAS/DockerData/dashy
+volumes:
+  dashy_data:
+    name: dashy_data
+    driver_opts:
+      type: nfs4
+      o: addr=192.168.86.11,nolock,soft,rw
+      device: :/volume1/NAS/DockerData/dashy
+  dashy_icons:
+    name: dashy_icons
+    driver_opts:
+      type: nfs4
+      o: addr=192.168.86.11,nolock,soft,rw
+      device: :/volume1/NAS/DockerData/dashy/icons
+
+  #github dahsboard icons
+# github icons?
 
 services:
   dashy:
@@ -16,6 +25,7 @@ services:
     volumes:
       # - dashy_data:/test
       - ./root/my-config.yml:/app/public/conf.yml
+      - dashy_icons:/app/public/item-icons/icons
     networks:
       dashy:
         ipv4_address: 172.26.1.10
