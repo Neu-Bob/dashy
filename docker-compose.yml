@@ -14,7 +14,7 @@ services:
     image: lissy93/dashy
     container_name: Dashy
     volumes:
-      - dashy_data:/app/public/conf.yml
+      - dashy_data:/conf.yml:/app/public/conf.yml
     networks:
       dashy:
         ipv4_address: 172.26.1.10
