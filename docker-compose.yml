@@ -1,68 +1,21 @@
 version: "3.8"
-
-#github dahsboard icons
-# github icons?
-
 services:
   dashy:
     image: lissy93/dashy
-    container_name: dashy
-    # Pass in your config file below, by specifying the path on your host machine
+    container_name: Dashy
     volumes:
-      # - dashy_data:/test
-      - dashy_data:/conf.yml:/app/public/conf.yml
-      - dashy_icons:/app/public/item-icons/icons
-    networks:
-      dashy:
-        ipv4_address: 172.26.1.10
+      - /NASshare/dashy/public/conf.yml:/app/public/conf.yml
     ports:
-      - 8066:80
+      - 4000:80
+    # Set any environmental variables
     environment:
       - NODE_ENV=production
       - UID=1000
       - GID=1000
     restart: unless-stopped
-    # Configure healthchecks
     healthcheck:
       test: ['CMD', 'node', '/app/services/healthcheck']
       interval: 1m30s
       timeout: 10s
       retries: 3
       start_period: 40s
-networks:
-  dashy:
-    ipam:
-      driver: default
-      config:
-        - subnet: "172.26.1.0/24"
-
-
-
-#Notes
-  # version: "3.8"
-  # volumes:
-  # services:
-  #   dashy:
-  #     # To build from source, replace 'image: lissy93/dashy' with 'build: .'
-  #     # build:
-  #     image: lissy93/dashy
-  #     container_name: Dashy
-  #     volumes:
-  #       - dashy_data:/conf.yml:/app/public/conf.yml
-  #     ports:
-  #       - 8066:80
-  #     # Set any environmental variables
-  #     environment:
-  #       - NODE_ENV=production
-  #     # Specify your user ID and group ID. You can find this by running `id -u` and `id -g`
-  #       - UID=1000
-  #       - GID=1000
-  #     # Specify restart policy
-  #     restart: unless-stopped
-  #     # Configure healthchecks
-  #     healthcheck:
-  #       test: ['CMD', 'node', '/app/services/healthcheck']
-  #       interval: 1m30s
-  #       timeout: 10s
-  #       retries: 3
-  #       start_period: 40s
