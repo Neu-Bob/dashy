@@ -6,7 +6,7 @@ volumes:
     driver_opts:
       type: nfs4
       o: addr=192.168.86.11,nolock,soft,rw
-      device: :/volume1/NAS/DockerData/dashy
+      device: :/volume1/NAS/DockerData/dashy/private
   dashy_icons:
     name: dashy_icons
     driver_opts:
