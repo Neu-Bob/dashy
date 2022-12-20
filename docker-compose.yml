@@ -1,4 +1,6 @@
 version: "3.8"
+volumes:
+
 services:
   dashy:
     # To build from source, replace 'image: lissy93/dashy' with 'build: .'
@@ -7,7 +9,10 @@ services:
     container_name: Dashy
     # Pass in your config file below, by specifying the path on your host machine
     volumes:
-      - dashy_config:/app/public/conf.yml
+      - /root/my-config.yml:/app/public/conf.yml
+    networks:
+      vw-bw:
+        ipv4_address: 172.26.1.10
     ports:
       - 8066:80
     # Set any environmental variables
@@ -25,5 +30,10 @@ services:
       timeout: 10s
       retries: 3
       start_period: 40s
-volumes:
-  dashy_config:
+
+networks:
+  vw-bw:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.26.1.0/24"
