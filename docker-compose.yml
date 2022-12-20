@@ -12,8 +12,8 @@ services:
     image: lissy93/dashy
     container_name: Dashy
     # Pass in your config file below, by specifying the path on your host machine
-    # volumes:
-    #   - dashy_data:/configs
+    volumes:
+      - dashy_data:/test
       # - /root/my-config.yml:/app/public/conf.yml
     networks:
       dashy:
