@@ -1,12 +1,5 @@
 version: "3.8"
 services:
-  tunnel:
-    container_name: cloudflared-tunnel-dashy
-    restart: unless-stopped
-    image: cloudflare/cloudflared
-    command: tunnel run
-    environment:
-      - TUNNEL_TOKEN=eyJhIjoiMGJlNjliODY5ZThhYjFiNzliZTI2MjY2YWQzODExOGEiLCJ0IjoiYWJjYjVjY2UtNjhjNi00ZDEwLThmNTQtZjIxYmViNDYyMDQ3IiwicyI6Ik1EWm1OR0kyTURrdFpqWmtZeTAwWlRNNUxUbGpNakV0Wm1Wa056STNORGhtTkdSaSJ9
   dashy:
     image: lissy93/dashy
     container_name: dashy
