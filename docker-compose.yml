@@ -3,7 +3,7 @@ services:
   dashy:
     image: lissy93/dashy:latest
     container_name: dashy
-    volumes:
+    # volumes:
       # - /NASshare/dashy/public/conf.yml:/app/public/conf.yml
       # - /NASshare/dashy/public/icons:/app/public/item-icons/
     ports:
@@ -20,5 +20,3 @@ services:
       timeout: 10s
       retries: 3
       start_period: 40s
-volumes:
-  dashy-data:
