@@ -5,7 +5,6 @@ services:
     container_name: dashy
     volumes:
       # - /NASshare/dashy/public/conf.yml:/app/public/conf.yml
-      - dashy-data:/app/public/conf.yml
       # - /NASshare/dashy/public/icons:/app/public/item-icons/
     ports:
       - 8066:80
