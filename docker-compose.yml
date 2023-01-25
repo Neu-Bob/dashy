@@ -4,8 +4,9 @@ services:
     image: lissy93/dashy
     container_name: dashy
     volumes:
-      - /NASshare/dashy/public/conf.yml:/app/public/conf.yml
-      - /NASshare/dashy/public/icons:/app/public/item-icons/
+      # - /NASshare/dashy/public/conf.yml:/app/public/conf.yml
+      - dashy-data:/app/public/conf.yml
+      # - /NASshare/dashy/public/icons:/app/public/item-icons/
     ports:
       - 8066:80
     # Set any environmental variables
@@ -20,3 +21,5 @@ services:
       timeout: 10s
       retries: 3
       start_period: 40s
+volumes:
+  dashy-data:
