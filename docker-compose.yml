@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   dashy:
-    image: lissy93/dashy:latest
+    image: lissy93/dashy:stable
     container_name: dashy
     volumes:
       - /NASshare/dashy/public/conf.yml:/app/public/conf.yml
