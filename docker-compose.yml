@@ -7,7 +7,7 @@ services:
       - /NAS/dashy/public/conf.yml:/app/public/conf.yml
       - /NAS/dashy/public/icons:/app/public/item-icons/
     ports:
-      - 8066:80
+      - 8066:8080
     # Set any environmental variables
     environment:
       - NODE_ENV=production
